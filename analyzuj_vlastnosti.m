@@ -10,19 +10,30 @@ function analyzuj_vlastnosti(cit, men)
     
     korene = roots(men);
     P = 0;
+    I = 0;
     for i=1:length(korene)
         if korene(i) > 0
             P = 1;
         elseif korene(i)==0
             P = 2;
         end
+        
+        if imag( korene(i) ) > 0
+            I = 1;
+        end
     end
     
     if P == 0
         disp('System je stabilny');
     elseif P==2
-        disp('System je na hranici stability')
+        disp('System je na hranici stability');
     else
         disp('System nie je stabilny!');
+    end
+    
+    if I == 0
+        disp('System je aperiodicky');
+    else
+        disp('System je periodicky');
     end
 end
