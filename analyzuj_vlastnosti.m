@@ -2,8 +2,14 @@ function analyzuj_vlastnosti(cit, men)
 
     if length(men) == length(cit)
         disp('System je rydzy');
+        figure
+        G=tf(cit,men);
+        step(G)
     elseif length(men)>length(cit)
         disp('System je striktne rydzy');
+        figure
+        G=tf(cit,men);
+        step(G)
     else
         disp('System nie je fyzikalne realizovatelny')
     end
